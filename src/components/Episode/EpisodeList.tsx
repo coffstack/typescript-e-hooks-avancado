@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { api } from "../../api/api";
 import { Episode } from "../../models/Episode";
 import { EpisodeCard } from "./EpisodeCard";
 
@@ -9,15 +8,11 @@ export function EpisodeList() {
   const [episodeList, setEpisodeList] = useState<Episode[]>([]);
 
   async function fetchMore() {
-    const list = await api.getEpisode(page);
-    setPage((prev) => prev + 1);
-    setEpisodeList((prev) => [...prev, ...list]);
+    // TODO:
   }
 
   useEffect(() => {
-    api.getEpisode(page).then((list) => {
-      setEpisodeList(list), setPage((prev) => prev + 1);
-    });
+    // TODO:
   }, []);
 
   return (

@@ -8,7 +8,6 @@ interface Props {
   index: number;
 }
 
-//TODO: add mais info como status e species
 export function CharacterCard({ character, index }: Props) {
   return (
     <>
