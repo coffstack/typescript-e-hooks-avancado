@@ -13,7 +13,7 @@ async function getCharacters(page: number): Promise<Character[]> {
   return response.data.results;
 }
 
-async function getEpisode(page: number): Promise<Episode[]> {
+async function getEpisodes(page: number): Promise<Episode[]> {
   const response = await axios.get<Page<Episode>>(
     `${BASE_URL}episode/?page=${page}`
   );
@@ -23,5 +23,5 @@ async function getEpisode(page: number): Promise<Episode[]> {
 
 export const api = {
   getCharacters,
-  getEpisode,
+  getEpisodes,
 };
