@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { Episode } from "../../models/Episode";
+import { api } from "../../api/api";
+import { usePagination } from "../../hooks/usePagination";
 import { EpisodeCard } from "./EpisodeCard";
 
 export function EpisodeList() {
-  const [page, setPage] = useState(1);
-  const [episodeList, setEpisodeList] = useState<Episode[]>([]);
-
-  async function fetchMore() {
-    // TODO:
-  }
-
-  useEffect(() => {
-    // TODO:
-  }, []);
+  const { list, fetchMore } = usePagination(api.getEpisodes);
 
   return (
     <div>
       <h1>Lista de Episódios</h1>
 
-      {episodeList.map((episode, index) => (
+      {list.map((episode, index) => (
         <EpisodeCard index={index} key={episode.id} episode={episode} />
       ))}
       <Button title="Mais..." onClick={fetchMore}>
